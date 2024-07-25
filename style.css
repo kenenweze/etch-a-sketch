@@ -1,37 +1,27 @@
-body {
-    background-color: gray;
-}
-
-header {
-    text-align: center;
-}
-
-.square-button {
-    margin: 20px auto;
+.grid-button {
     text-align: center;
 }
 
 button {
-    margin: 20px auto;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 20px;
     background-color: aqua;
 }
 
 .container {
     width: 95vw;
+}
+
+.container > div {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.container div {
-    width: 75px;
-    height: 75px;
-    background-color: white;
+    width: 100%;
+    
     border: 1px solid black;
 }
 
-/*.container div:nth-child(16) {
-    flex-basis: auto;
-}*/
+.container > div > div {
+    aspect-ratio: 1/1;
+    flex: 1;
+    border: 1px solid blue;
+}

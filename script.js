@@ -1,19 +1,36 @@
 const container = document.querySelector(".container");
-const button = document.getElementById("square")
-
-let i;
-let numOfSquares;
+const button = document.getElementById("new-grid");
 
 button.addEventListener("click", () => {
-    let squares = prompt("Enter the number of squares per side");
-    return numOfSquares = Number(squares) * Number(squares);
-})
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+});
+button.addEventListener("click", createGrid);
 
-for (i = 49; i > 0; i--) {
-let item = document.createElement("div");
-container.appendChild(item);
+function createGrid() {
+    let i;
+    let j;
+    let k = Number(prompt("How many squares per side?"));
 
-item.addEventListener("mouseover", () => {
-    item.style.backgroundColor = "green";
-})
+    for (i = k; i > 0; i--) {
+
+        if (i > 100) {
+            alert("Maximum number has been crossed");
+            break;
+        } else {
+
+            let row = document.createElement("div");
+            container.appendChild(row);
+
+            for (j = k; j > 0; j--) {
+                let column = document.createElement("div");
+                row.appendChild(column);
+
+                column.addEventListener("mouseover", () => {
+                    column.style.backgroundColor = "green";
+                });
+            }
+        }
+    }
 }
