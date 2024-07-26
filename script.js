@@ -1,21 +1,24 @@
 const container = document.querySelector(".container");
 const button = document.getElementById("new-grid");
 
+//Remove the grid that is currently in the window
 button.addEventListener("click", () => {
     while(container.firstChild) {
         container.removeChild(container.firstChild);
     }
 });
+
 button.addEventListener("click", createGrid);
 
 function createGrid() {
-    let i;
-    let j;
-    let k = Number(prompt("How many squares per side?"));
 
-    for (i = k; i > 0; i--) {
+    let rows;
+    let columns;
+    let numOfSquares = Number(prompt("How many squares per side?"));
 
-        if (i > 100) {
+    for (rows = numOfSquares; rows > 0; rows--) {
+
+        if (rows > 100) {
             alert("Maximum number has been crossed");
             break;
         } else {
@@ -23,7 +26,7 @@ function createGrid() {
             let row = document.createElement("div");
             container.appendChild(row);
 
-            for (j = k; j > 0; j--) {
+            for (columns = numOfSquares; columns > 0; columns--) {
                 let column = document.createElement("div");
                 row.appendChild(column);
 
